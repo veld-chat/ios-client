@@ -30,6 +30,7 @@
 		86719C542596D329004CC893 /* MessageBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86719C532596D329004CC893 /* MessageBarView.swift */; };
 		86719C862596DE52004CC893 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86719C852596DE52004CC893 /* Font Awesome 5 Free-Solid-900.otf */; };
 		86719C872596DE52004CC893 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86719C852596DE52004CC893 /* Font Awesome 5 Free-Solid-900.otf */; };
+		86719C9A25976DCE004CC893 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 86719C9925976DCE004CC893 /* SocketIO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86719C9A25976DCE004CC893 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +175,7 @@
 				70C54F10F35F2A918CC86471 /* macOS */,
 				70C5428202F03468713CE0FD /* Tests iOS */,
 				70C542D87568A82C9099858B /* Tests macOS */,
+				86719C9825976DCE004CC893 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,6 +236,13 @@
 			path = Previews;
 			sourceTree = "<group>";
 		};
+		86719C9825976DCE004CC893 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,6 +297,9 @@
 			dependencies = (
 			);
 			name = "chat (macOS)";
+			packageProductDependencies = (
+				86719C9925976DCE004CC893 /* SocketIO */,
+			);
 			productName = "chat (macOS)";
 			productReference = 70C543EDF90A6A08A9D2E03A /* chat.app */;
 			productType = "com.apple.product-type.application";
@@ -505,8 +518,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WFWB2RB7PR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -516,6 +531,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.veld.chat;
 				PRODUCT_NAME = chat;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -691,8 +707,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WFWB2RB7PR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -702,6 +720,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.veld.chat;
 				PRODUCT_NAME = chat;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -770,6 +789,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		860240752595AEC000875960 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 860240742595AEC000875960 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+		86719C9925976DCE004CC893 /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 860240742595AEC000875960 /* XCRemoteSwiftPackageReference "socket" */;
 			productName = SocketIO;
