@@ -39,6 +39,6 @@ class ChatService: ObservableObject {
                 return;
             }
             print(response!);
-        }.resume()
+        }.resume();
     }
 }

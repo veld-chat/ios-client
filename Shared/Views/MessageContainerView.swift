@@ -10,7 +10,6 @@ import SwiftUI
 struct MessageContainerView: View {
     @EnvironmentObject var store: AppStore;
     @EnvironmentObject var chatService: ChatService;
-    @State private var inputData = "";
     
     var body: some View {
         guard let channel = store.state.currentChannel else {
@@ -20,13 +19,17 @@ struct MessageContainerView: View {
         return AnyView(
             VStack(alignment: .leading) {
                 Group {
-                    Text("channel.getName()")
-                        .lineLimit(1)
-                        .padding(.all, 16.0)
-                        .frame(
-                            maxWidth: .greatestFiniteMagnitude,
-                            alignment: .topLeading
-                        )
+                    HStack {
+                        Text("")
+                            .font(.custom("FontAwesome5Free-Solid", size: 16))
+                            .padding(.trailing, 4.0);
+                        Text(channel.getName())
+                            .lineLimit(1)
+                            .frame(
+                                maxWidth: .greatestFiniteMagnitude,
+                                alignment: .topLeading
+                            );
+                    }.padding(.all, 16.0);
                     Divider();
                 };
                 ScrollView(.vertical, showsIndicators: true) {
@@ -42,27 +45,11 @@ struct MessageContainerView: View {
                 }
                 .frame(maxWidth: .greatestFiniteMagnitude)
                 Spacer();
-                Divider();
-                HStack {
-                    TextField("test", text: $inputData)
-                        .padding(.all, 16.0);
-                    Button(action: sendMessage) {
-                        Text(">")
-                    }
-                }
+                MessageBarView()
+                    .environmentObject(store)
+                    .environmentObject(chatService)
             }
         )
-    }
-    
-    func sendMessage() {
-        guard let channel = store.state.currentChannel else {
-            return;
-        }
-        
-        chatService.sendMessage(channelId: channel.getId(),
-                                content: inputData,
-                                embed: nil);
-        inputData = "";
     }
 }
 
